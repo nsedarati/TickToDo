@@ -13,6 +13,7 @@ resources :sessions, only: [:create, :new]
   get '/signup' => 'users#new'
   post '/users' => 'users#create'
   
+  get "/auth/:provider/callback" => "sessions#create_from_omniauth"
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
