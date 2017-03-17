@@ -21,7 +21,7 @@ class SessionsController < ApplicationController
     #redirect_to @next, :notice => @notice
   end
 
-  
+
   def new
   end
 
@@ -31,7 +31,8 @@ class SessionsController < ApplicationController
 
       session[:user_id] = @user.id
       flash[:success] = "Successfully Login!"
-      redirect_to todo_lists_path(current_user)
+      redirect_to '/'
+      # redirect_to todo_lists_path(current_user)
     else
       flash.now[:error] = "There was a problem with authenticating."
       render :new
