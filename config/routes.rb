@@ -1,5 +1,4 @@
 Rails.application.routes.draw do
-  
 
 resources :users
 resources :sessions, only: [:create, :new]
@@ -8,17 +7,18 @@ resources :sessions, only: [:create, :new]
   # these routes are for showing users a login form, logging them in, and logging them out.
   get '/login' => 'sessions#new'
   post '/login' => 'sessions#create'
-  get '/logout' => 'sessions#destroy'
+  delete "/logout" => "sessions#destroy", as: :logout
 
   get '/signup' => 'users#new'
   post '/users' => 'users#create'
   
+  get "/auth/:provider/callback" => "sessions#create_from_omniauth"
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 
   # You can have the root of your site routed with "root"
-  # root 'welcome#index'
+   root 'welcome#index'
 
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'
