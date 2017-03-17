@@ -11,7 +11,7 @@ class SessionsController < ApplicationController
       redirect_to todo_lists_path(current_user)
     else
       flash.now[:error] = "There was a problem with authenticating."
-      render action: 'new'
+      render :new
     end
   end
 
