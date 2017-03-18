@@ -1,2 +1,7 @@
-<h1>TodoLists#show</h1>
-<p>Find me in app/views/todo_lists/show.html.erb</p>
+<h1><%= @todo_list.title %></h1>
+
+  
+
+
+<%= link_to 'Edit', edit_todo_list_path(@todo_list) %> |
+<%= link_to 'Back', todo_lists_path %>

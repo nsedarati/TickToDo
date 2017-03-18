@@ -1,5 +1,6 @@
 class User < ActiveRecord::Base
   has_secure_password
+  has_many :todo_lists
   enum access_level: [:user, :admin]
   # has_many :todo_lists
   has_many :authentications, :dependent => :destroy
