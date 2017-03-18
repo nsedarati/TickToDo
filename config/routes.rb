@@ -2,6 +2,8 @@ Rails.application.routes.draw do
 
 resources :users
 resources :sessions, only: [:create, :new]
+resources :todo_lists
+
 
 
   # these routes are for showing users a login form, logging them in, and logging them out.
