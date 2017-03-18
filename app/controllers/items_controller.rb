@@ -3,6 +3,8 @@ class ItemsController < ApplicationController
   before_action :find_todolist_id
 
   def index
+    @items = current_user.todo_lists(@items)
+
   end
 
   def show
@@ -10,7 +12,7 @@ class ItemsController < ApplicationController
   end
 
   def new
-    @item = @todo_list.items.new
+     @item = @todo_list.items.new
   end
 
   def edit
@@ -29,14 +31,14 @@ class ItemsController < ApplicationController
     # byebug
     if @item.save
       # byebug
-      # if params[:images]
-      #   params[:images].each do |image|
-      #     @item.photos.create(image: image)
-      #     # byebug
-      #   end
-      # end
+      if params[:images]
+        params[:images].each do |image|
+          @item.photos.create(image: image)
+          # byebug
+        end
+      end
 
-      # photos = @item.photos
+      photos = @item.photos
       flash[:notice] = "new item added!"
       redirect_to edit_todo_list_path(@item)
     else
@@ -49,14 +51,14 @@ class ItemsController < ApplicationController
     # @item = current_user.items.build(params[:id])
     @item = @todo_list.items.find(params[:id])
     if @item.update_attributes(item_params)
-      # if params[:images]
-      #   params[:images].each do |image|
-      #      @item.photos.create(image: image)
-      #   end
-      # end
+      if params[:images]
+        params[:images].each do |image|
+           @item.photos.create(image: image)
+        end
+      end
 
       flash[:notice] = "item Updated!"
-      redirect_to todo_list_path(@item)
+      redirect_to todo_list_item(@item)
 
     else
       flash[:notice] = "Could not Saved!"
@@ -87,7 +89,8 @@ private
 
 def find_todolist_id
   # scope problem ,checked
-  @todo_list = current_user.todo_lists.find(params[:todo_list_id])
+  @todo_list = @current_user.todo_lists.find(params[:todo_list_id])
+  
 end
 
 def item_params

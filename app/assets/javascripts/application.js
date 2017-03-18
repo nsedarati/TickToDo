@@ -16,3 +16,5 @@
 //= require toastr
 //= require turbolinks
 //= require_tree .
+
+$('#photos').html("<%= j render 'photos/list' %>")

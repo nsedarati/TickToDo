@@ -13,7 +13,6 @@ class TodoListsController < ApplicationController
   end
 
   def show
-
   end
 
   def new
@@ -21,8 +20,6 @@ class TodoListsController < ApplicationController
   end
 
   def edit
-
-
   end
 
   def create

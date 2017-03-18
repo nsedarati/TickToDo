@@ -11,6 +11,8 @@ resources :welcome, only: [:index]
     end
   end
 
+  resources :photos
+
 
 
 

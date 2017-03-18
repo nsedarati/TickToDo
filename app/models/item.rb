@@ -1,5 +1,6 @@
 class Item < ActiveRecord::Base
   belongs_to :todo_list
+  has_many :photos, dependent: :destroy
 
 
   validates :content, presence: true,
