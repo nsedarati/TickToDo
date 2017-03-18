@@ -11,6 +11,15 @@ class User < ActiveRecord::Base
 
   before_save :downcase_email
 
+   def downcase_email
+    self.email = email.downcase
+  end
+
+  def generate_password_reset_token!
+    update_attribute(:password_reset_token, SecureRandom.urlsafe_base64(48))
+  end
+
+
     def self.create_with_auth_and_hash(authentication, auth_hash)
     # byebug
     user = User.create!(first_name: auth_hash["info"]["name"], email: auth_hash["extra"]["raw_info"]["email"],:password => auth_hash['uid'])
@@ -28,11 +37,4 @@ class User < ActiveRecord::Base
     true
   end
 
-  def downcase_email
-    self.email = email.downcase
-  end
-
-  def generate_password_reset_token!
-    update_attribute(:password_reset_token, SecureRandom.urlsafe_base64(48))
-  end
-end
+ end

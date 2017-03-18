@@ -2,7 +2,15 @@ Rails.application.routes.draw do
 
 resources :users
 resources :sessions, only: [:create, :new]
-resources :todo_lists
+resources :welcome, only: [:index]
+ resources :todo_lists do
+    resources :items do
+      member do
+        patch :complete
+      end
+    end
+  end
+
 
 
 

@@ -8,9 +8,25 @@
   </div>
   <div class="panel-body" style="padding: 30px">
    <div class="row">
-   
+           <!--  <div class="col-md-4"></div> -->
 
-         
+          <div class="col-md-4">    
+    <ul>
+      <%= link_to 'List items', todo_list_items_path(todo_list) %>
+
+      <%= link_to 'Show', todo_list %>
+      </ul>
+      </div>
+      <div class="col-md-4">  
+      <ul>
+      <%= link_to edit_todo_list_path(todo_list) do %>
+      <span class="glyphicon glyphicon-edit"></span>
+      <% end %>
+
+      <%= link_to todo_list_path(todo_list), method: :delete, data: { confirm: "Are you sure?" } do %>
+           <span class="glyphicon glyphicon-trash"></span>
+      <% end %>
+    </ul>
        </div>
    </div>
   </div>

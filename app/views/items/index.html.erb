@@ -1,0 +1,25 @@
+<div class="panel panel-default">
+  <div class="panel-heading"><%= @todo_list.title %></div>
+  <div class="panel-body">
+    <% @todo_list.items.each do |item| %>
+      <div class="container">
+        <div class="row">
+          <div class="col-md-4">
+            <p><%= item.content %></p>
+            <% if !item.completed_at.blank? %>
+              <%= item.completed_at %>
+            <% else %>
+              <i class="btn btn-success"><%= link_to "Mark Complete", complete_todo_list_item_path(@todo_list, item), method: :patch %></i>
+            <% end %>
+            <i class="btn btn-warning"><%= link_to "Edit", edit_todo_list_item_path(@todo_list, item) %></i>
+            <i class="btn btn-danger"><%= link_to "Delete", todo_list_item_path(@todo_list, item), method: :delete, data: { confirm: "Are you sure?" } %></i>
+          </div>
+        <% end %>
+      </div>
+    </div>
+  </div>
+</div>
+<p>
+  <%= link_to "New Item", new_todo_list_item_path %>
+  <%= link_to "Back", todo_lists_path %>
+</p>
