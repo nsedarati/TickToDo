@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170318123102) do
+ActiveRecord::Schema.define(version: 20170319024639) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -34,6 +34,8 @@ ActiveRecord::Schema.define(version: 20170318123102) do
     t.datetime "created_at",   null: false
     t.datetime "updated_at",   null: false
     t.datetime "completed_at"
+    t.float    "latitude"
+    t.float    "longitude"
   end
 
   add_index "items", ["todo_list_id"], name: "index_items_on_todo_list_id", using: :btree

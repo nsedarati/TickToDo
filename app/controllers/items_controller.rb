@@ -40,7 +40,7 @@ class ItemsController < ApplicationController
 
       photos = @item.photos
       flash[:notice] = "new item added!"
-      redirect_to edit_todo_list_path(@item)
+      redirect_to '/'
     else
       flash[:info] = "Hey,There is a problem with your adding new item."
       render :new
@@ -58,7 +58,8 @@ class ItemsController < ApplicationController
       end
 
       flash[:notice] = "item Updated!"
-      redirect_to todo_list_item(@item)
+      redirect_to '/'
+      # redirect_to todo_list_item(@item)
 
     else
       flash[:notice] = "Could not Saved!"
@@ -94,5 +95,5 @@ def find_todolist_id
 end
 
 def item_params
-  params.require(:item).permit(:content, :completed_at, :address)
+  params.require(:item).permit(:content, :completed_at, :address, :latitude, :longitude, :todo_list_id)
 end

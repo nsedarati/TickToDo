@@ -19,7 +19,8 @@ gem 'geocoder'
 gem 'bootstrap-sass', '~> 3.3.6'
 gem 'sass-rails', '~> 5.0'
 gem 'minitest'
-gem "paperclip", "~> 5.0.0"
+gem "paperclip", '~> 5.0.0'
+
 
 
 # bundle exec rake doc:rails generates the API under doc/api.

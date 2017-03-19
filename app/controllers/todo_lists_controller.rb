@@ -58,9 +58,9 @@ private
 def set_todo_list
   # check scope again
   @todo_list = @current_user.todo_lists.find(params[:id])
-   # byebug
+    # byebug
 end
 
 def todo_list_params
-  params.require(:todo_list).permit(:title, :user_id)
+  params.require(:todo_list).permit(:title)
 end
