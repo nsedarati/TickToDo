@@ -81,8 +81,8 @@ class ItemsController < ApplicationController
 
   def complete
     @item = @todo_list.items.find(params[:id])
-    @item.update_attribute(:completed_at, Time.now)
-    redirect_to todo_list_items_path, notice: "Yaaay,It's complete!"
+    @item.update_attribute(:completed_at, Time.now.asctime)
+    redirect_to todo_list_items_path, notice: "It's done!"
   end
 end
 
