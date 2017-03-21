@@ -12,6 +12,7 @@ resources :welcome, only: [:index]
   end
 
   resources :photos
+  resources :password_resets, only: [:new, :create,:edit, :update]
 
 
 

@@ -37,4 +37,4 @@ class User < ActiveRecord::Base
     true
   end
 
- end
+ end  
