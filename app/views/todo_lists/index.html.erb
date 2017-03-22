@@ -1,41 +1,33 @@
- <div class="row">
+<div class="row">
   <div class="col-md-10">
- <% @todo_lists.each do |todo_list| %>
-  <div class="panel panel-success">
-
-  <div class="panel-heading">
-    It's about: <%= todo_list.title.humanize %>
-  </div>
-  <div class="panel-body" style="padding: 30px">
-   <div class="row">
-           <!--  <div class="col-md-4"></div> -->
-
-          <div class="col-md-4">    
-    <ul>
-      <%= link_to 'Items', todo_list_items_path(todo_list) %> |
+    <% @todo_lists.each do |todo_list| %>
+      <div class="panel panel-success">
+        <div class="panel-heading">
+          It's about: <%= todo_list.title.humanize %>
+        </div>
+        <div class="panel-body" style="padding: 30px">
+          <div class="row">
+            <div class="col-md-4">
+              <ul>
+                <%= link_to 'Items', todo_list_items_path(todo_list) %> |
 
       <%= link_to 'Show', todo_list %>
-      </ul>
+              </ul>
+            </div>
+            <div class="col-md-4">
+              <ul>
+                <%= link_to edit_todo_list_path(todo_list) do %>
+                  <span class="glyphicon glyphicon-edit"></span>
+                <% end %>
+                <%= link_to todo_list_path(todo_list), method: :delete, data: { confirm: "Are you sure?" } do %>
+                  <span class="glyphicon glyphicon-trash"></span>
+                <% end %>
+              </ul>
+            </div>
+          </div>
+        </div>
       </div>
-      <div class="col-md-4">  
-      <ul>
-      <%= link_to edit_todo_list_path(todo_list) do %>
-      <span class="glyphicon glyphicon-edit"></span>
-      <% end %>
-
-      <%= link_to todo_list_path(todo_list), method: :delete, data: { confirm: "Are you sure?" } do %>
-           <span class="glyphicon glyphicon-trash"></span>
-      <% end %>
-    </ul>
-       </div>
-   </div>
+    <% end %>
+    <i class="btn btn-success"><%= link_to 'New Todo list', new_todo_list_path %></i>
   </div>
-
-  </div>
-
- <% end %>
-
- <i class="btn btn-success"><%= link_to 'New Todo list', new_todo_list_path %></i>
-
- </div>
 </div>

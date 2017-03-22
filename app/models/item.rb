@@ -9,10 +9,10 @@ class Item < ActiveRecord::Base
   validates :content, presence: true,
     length: { minimum: 2 }
 
-    
-    scope :incomplete, -> { where(completed_at: nil) }
-     scope :complete, -> { where("completed_at is not null") }
- 
+
+  scope :incomplete, -> { where(completed_at: nil) }
+  scope :complete, -> { where("completed_at is not null") }
+
 
 
 end

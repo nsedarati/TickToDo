@@ -34,20 +34,20 @@ class TodoListsController < ApplicationController
   end
 
   def update
-  if @todo_list.update(todo_list_params)
-    # byebug
-    redirect_to @todo_list, notice: 'Todo list was successfully updated.'
-  else
-    render :edit
+    if @todo_list.update(todo_list_params)
+      # byebug
+      redirect_to @todo_list, notice: 'Todo list was successfully updated.'
+    else
+      render :edit
+    end
   end
-end
 
 
-def destroy
-  # @todo_list = TodoList.find(params[:id])
-  @todo_list.destroy
-  redirect_to todo_lists_path , notice: 'Todo list was successfully destroyed.'
-end
+  def destroy
+    # @todo_list = TodoList.find(params[:id])
+    @todo_list.destroy
+    redirect_to todo_lists_path , notice: 'Todo list was successfully destroyed.'
+  end
 
 end
 
@@ -58,7 +58,7 @@ private
 def set_todo_list
   # check scope again
   @todo_list = @current_user.todo_lists.find(params[:id])
-    # byebug
+  # byebug
 end
 
 def todo_list_params

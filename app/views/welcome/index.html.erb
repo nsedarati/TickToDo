@@ -1,3 +1,9 @@
-
-
+<h4>Recent completed items: </h4>
+<ul>
+  <% @items.each do |item| %>
+    <% if !item.completed_at.blank?  %>
+      <li><%= item.content %></li>
+    <% end %>
+  <% end %>
+</ul>
 <i class="btn btn-success"><%= link_to 'New Todo list', new_todo_list_path %></i>
