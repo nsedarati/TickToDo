@@ -12,12 +12,13 @@ class ItemsController < ApplicationController
   end
 
   def new
-     @item = @todo_list.items.new
+    @item = @todo_list.items.new
   end
 
   def edit
     @item = @todo_list.items.find(params[:id])
-    if current_user.id = @item
+
+    if current_user.id = @item.id
 
       @photos = @item.photos
     else
@@ -53,7 +54,7 @@ class ItemsController < ApplicationController
     if @item.update_attributes(item_params)
       if params[:images]
         params[:images].each do |image|
-           @item.photos.create(image: image)
+          @item.photos.create(image: image)
         end
       end
 
@@ -91,7 +92,7 @@ private
 def find_todolist_id
   # scope problem ,checked
   @todo_list = @current_user.todo_lists.find(params[:todo_list_id])
-  
+
 end
 
 def item_params

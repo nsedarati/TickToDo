@@ -26,5 +26,13 @@ Things you may want to cover:
 
 Please feel free to use a different markup language if you do not plan to run
 <tt>rake doc:app</tt>.
- <li><%= link_to "My Profile", user_path(@current_user) %></li>
+ 
 
+<h4>Recent completed items: </h4>
+<ul>
+  <% @items.each do |item| %>
+    <% if !item.completed_at.blank?  %>
+      <li><%= item.content %></li>
+    <% end %>
+  <% end %>
+</ul>
