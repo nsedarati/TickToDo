@@ -38,6 +38,8 @@ gem 'sdoc', '~> 0.4.0', group: :doc
 group :development, :test do
   gem 'rspec-rails'
   gem 'byebug'
+  gem 'capybara'
+  gem 'shoulda-matchers'
 end
 
 group :development do
@@ -48,8 +50,8 @@ group :development do
   gem 'spring'
 end
 
-group :test do
-  gem 'capybara'
-  gem 'shoulda-matchers'
-end
+# group :test do
+#   gem 'capybara'
+#   gem 'shoulda-matchers'
+# end
 

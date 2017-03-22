@@ -1,4 +1,6 @@
+require 'rails_helper'
 require 'spec_helper'
+
 
 RSpec.describe User, type: :model do
   let(:valid_attributes) {
@@ -38,11 +40,5 @@ RSpec.describe User, type: :model do
         to("n.seda@gmail.com")
     end
 
-    it "downcases an email before saving" do
-      user = User.new(valid_attributes)
-      user.email = "N.SEDARATI@GMAIL.COM"
-      expect(user.save).to be_true
-      expect(user.email).to eq("n.sedarati@gmail.com")
-    end
   end
 end

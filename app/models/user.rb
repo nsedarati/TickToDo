@@ -4,10 +4,11 @@ class User < ActiveRecord::Base
   enum access_level: [:user, :admin]
   # has_many :todo_lists
   has_many :authentications, :dependent => :destroy
-  validates :email, presence: true, uniqueness: true,
-  format: {
-    with: /\A[A-Za-z0-9._%+-]+@[A-Za-z0-9\.-]+\.[A-Za-z]+\Z/
-  }
+  validates :email, presence: true, 
+                    uniqueness: true,
+                    format: {
+                        with: /\A[A-Za-z0-9._%+-]+@[A-Za-z0-9\.-]+\.[A-Za-z]+\Z/
+                    }
 
   before_save :downcase_email
 
