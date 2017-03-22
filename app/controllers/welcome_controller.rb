@@ -1,6 +1,7 @@
 class WelcomeController < ApplicationController
+  before_action :require_user
   def index
-    @items = Item.all
+    @items = current_user.todo_lists(@items)
   end
 
 

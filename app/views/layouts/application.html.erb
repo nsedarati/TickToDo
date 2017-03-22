@@ -25,17 +25,17 @@
         <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
           <ul class="nav navbar-nav">
             <li class="active"><span class="sr-only"><%= link_to "Todo Lists", todo_lists_path %>(current)</span></</li>
-            <ul class="nav navbar-nav navbar-right">
+            <ul class="nav navbar-nav">
               <% if logged_in? %>
                 <li><%= link_to "All todos", todo_lists_path %></li>
                 <li><%= link_to "My Profile", user_path(current_user) %></li>
                 <li><%= link_to "Logout", logout_path, method: :delete %></li>
-                <li><%= image_tag avatar_url(current_user), class: "img-circle" %>&nbsp;
-                    <%= current_user.first_name %><span class="caret"></span></li>
+                <li class="nav navbar-right"><%= image_tag avatar_url(current_user), class: "img-circle" %>&nbsp;
+                    <%= current_user.first_name %></li>
               </li>
             <% else %>
               <li><%= link_to 'Login', '/login' %></li>
-              <li><%= link_to 'Signup', new_user_path %></li>
+              <li><%= link_to 'Signup', '/signup' %></li>
               <li><%= link_to "Sign in with Facebook", "/auth/facebook" %></li>
             </ul>
           <% end %>
